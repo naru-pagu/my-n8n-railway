@@ -1,18 +1,25 @@
 {
   "name": "n8n-railway-production",
   "version": "1.0.0",
-  "description": "n8n production deployment on Railway",
+  "description": "n8n workflow automation on Railway",
   "main": "index.js",
   "scripts": {
-    "start": "n8n start --tunnel",
-    "dev": "n8n start --tunnel"
+    "start": "n8n start",
+    "build": "echo 'No build step required'",
+    "dev": "n8n start"
   },
   "dependencies": {
     "n8n": "^1.97.1"
   },
   "engines": {
-    "node": ">=18.0.0"
-  }
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "n8n",
+    "workflow",
+    "automation"
+  ],
+  "author": "",
+  "license": "ISC"
 }
-
-
