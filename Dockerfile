@@ -6,10 +6,7 @@ WORKDIR /home/node
 # n8nをグローバルインストール
 RUN npm install -g n8n
 
-# nodeユーザーの作成と権限設定
-RUN addgroup -g 1000 node && \
-    adduser -u 1000 -G node -s /bin/sh -D node
-
+# 既存のnodeユーザーを使用して権限設定
 RUN mkdir -p /home/node/.n8n && \
     chown -R node:node /home/node/.n8n && \
     chmod -R 700 /home/node/.n8n
