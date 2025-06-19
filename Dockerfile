@@ -3,7 +3,7 @@ FROM n8nio/n8n:latest
 # 作業ディレクトリの設定
 WORKDIR /home/node
 
-# 必要なディレクトリの作成と権限設定
+# rootユーザーで権限設定
 USER root
 RUN mkdir -p /home/node/.n8n && \
     chown -R node:node /home/node/.n8n && \
@@ -15,5 +15,5 @@ USER node
 # ポートの公開
 EXPOSE 5678
 
-# n8nの起動（シンプル版）
-CMD ["n8n"]
+# n8nの完全パスで起動
+CMD ["/usr/local/bin/node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
