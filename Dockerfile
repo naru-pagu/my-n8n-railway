@@ -1,10 +1,15 @@
-FROM n8nio/n8n:latest
+FROM node:18-alpine
 
-# 作業ディレクトリの設定
+# 作業ディレクトリ
 WORKDIR /home/node
 
-# rootユーザーで権限設定
-USER root
+# n8nをグローバルインストール
+RUN npm install -g n8n
+
+# nodeユーザーの作成と権限設定
+RUN addgroup -g 1000 node && \
+    adduser -u 1000 -G node -s /bin/sh -D node
+
 RUN mkdir -p /home/node/.n8n && \
     chown -R node:node /home/node/.n8n && \
     chmod -R 700 /home/node/.n8n
@@ -12,8 +17,8 @@ RUN mkdir -p /home/node/.n8n && \
 # nodeユーザーに切り替え
 USER node
 
-# ポートの公開
+# ポート公開
 EXPOSE 5678
 
-# n8nの完全パスで起動
-CMD ["/usr/local/bin/node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
+# n8n起動
+CMD ["n8n"]
