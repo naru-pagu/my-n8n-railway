@@ -1,6 +1,6 @@
 {
   "name": "n8n-railway-production",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "n8n workflow automation on Railway",
   "main": "index.js",
   "scripts": {
