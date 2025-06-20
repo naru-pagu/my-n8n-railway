@@ -4,7 +4,7 @@
   "description": "n8n workflow automation on Railway",
   "main": "index.js",
   "scripts": {
-    "start": "n8n start",
+    "start": "rm -rf /root/.n8n && n8n start --tunnel",
     "build": "echo 'No build step required'",
     "dev": "n8n start"
   },
